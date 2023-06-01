@@ -1,9 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { fetchSingleReview, fetchCommentsByReviewId } from "../utils";
+import { fetchSingleReview, fetchCommentsByReviewId, formatDate } from "../utils";
 import "../singleReview.css";
 import CommentsList from "./CommentsList";
-import { formatDate } from "../utils";
 
 function SingleReview() {
   const { review_id } = useParams();
@@ -11,6 +10,7 @@ function SingleReview() {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [showComments, setShowComments] = useState(false);
+  
 
   useEffect(() => {
     fetchSingleReview(review_id).then((review) => {
@@ -47,7 +47,7 @@ function SingleReview() {
       <p>Created On: {formatDate(singleReview.created_at)}</p>
       <p>UpVotes: {singleReview.votes}</p>
 
-      <button onClick={toggleComments}>
+      <button className="comments-button" onClick={toggleComments}>
         {showComments ? "Hide Comments" : "Show Comments"}
       </button>
 
@@ -58,3 +58,21 @@ function SingleReview() {
 
 
 export default SingleReview
+// const [voteCount, setVoteCount] = useState[0]
+// useEffect(() => {
+//     fetchSingleReview(review_id).then((review) => {
+//       setSingleReview(review);
+//       setVoteCount(review.votes)
+//       setIsLoading(false);
+//     });
+//   }, [review_id]);
+
+// function handleVote() {
+//   
+// }
+
+{/* <div className="vote-buttons">
+<button onClick={handleUpVote}>Upvote</button>
+<button onClick={handleDownVote}>Downvote</button>
+</div> */}
+

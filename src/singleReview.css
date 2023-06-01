@@ -5,3 +5,7 @@
 .single-review-content p {
     color:black;
 }
+
+.single-review-content img {
+    border-radius: 20px;
+}

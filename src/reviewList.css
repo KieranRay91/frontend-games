@@ -16,7 +16,7 @@
   text-align: center;
   padding: 2rem;
   background-color: #f1ebeb;
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
   margin: 1rem;
@@ -47,10 +47,16 @@
 
 .review-card h2 {
   font-size: 24px;
-  color: #333;
+  color: rgb(0, 0, 0);
 }
 
 .review-card h3 {
   margin-top: 0.5rem;
-  color: #777;
+  color: rgb(0, 0, 0);
+}
+
+
+.review-card h4 {
+  margin-top: 0.5rem;
+  color: rgb(0, 0, 0);
 }
