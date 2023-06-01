@@ -23,7 +23,7 @@ function SingleReview() {
   return (
     <div className ='single-review-content'>
       <h1>{singleReview.title}</h1> 
-      <h4>Review Author: {singleReview.owner}</h4>
+      <h2>Review Author: {singleReview.owner}</h2>
       <h3>Game Designer: {singleReview.designer}</h3> 
       <img src={singleReview.review_img_url} alt={`Image for the review titled ${singleReview.title}`}/>
       <p>{singleReview.review_body}</p>
