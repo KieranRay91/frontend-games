@@ -17,7 +17,6 @@ function Reviews() {
   if (isLoading) {
     return <p>Loading....</p>;
   }
-
   return (
     <>
     
@@ -26,12 +25,14 @@ function Reviews() {
       <ul>
         {currentReviews.map((review) => {
           return (
+           
             <ReviewCard
               key={review.review_id}
               title={review.title}
               image={review.review_img_url}
               owner={review.owner}
               votes={review.votes}
+              review_id={review.review_id}
             />
           );
         })}
@@ -40,4 +41,4 @@ function Reviews() {
   );
 }
 
-export default Reviews;
+export default Reviews
