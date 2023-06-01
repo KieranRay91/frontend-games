@@ -18,11 +18,11 @@ function Reviews() {
     return <p>Loading....</p>;
   }
   return (
-    <>
+    <div className='reviews-container'>
     
       <h1 className='reviews-header'>Review All Our Reviews</h1>
       <p className='reviews-description'>Considering buying a game but want to know if it's any good before you do? Want to know what other people think about that game you just can't stop playing? Check out our list below to find the answers to all of your questions!</p>
-      <ul>
+      <ul className='review-list'>
         {currentReviews.map((review) => {
           return (
            
@@ -37,7 +37,7 @@ function Reviews() {
           );
         })}
       </ul>
-    </>
+    </div>
   );
 }
 
