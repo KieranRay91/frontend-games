@@ -1,6 +1,6 @@
+import { Link } from "react-router-dom";
 
-
-function ReviewCard({ title, image, owner, votes }) {
+function ReviewCard({ review_id, title, image, owner, votes }) {
   return (
     <li className="review-card" role="article">
       <article>
@@ -12,9 +12,12 @@ function ReviewCard({ title, image, owner, votes }) {
         />
         <h3>Written by: {owner}</h3>
         <h4>UpVotes: {votes}</h4>
+        <Link to={`/reviews/${review_id}`}>
+          <button className="read-more-button">Read Full Review</button>
+        </Link>
       </article>
     </li>
   );
 }
 
-export default ReviewCard;
+export default ReviewCard

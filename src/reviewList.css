@@ -1,11 +1,12 @@
 .reviews-heading {
   font-size: 28px;
-  color: #333;
+  color: rgb(0, 0, 0);
   margin-bottom: 1rem;
 }
 
 .reviews-description {
   margin-bottom: 2rem;
+  color: rgb(0, 0, 0);
 }
 .review-card {
     display: flex;
