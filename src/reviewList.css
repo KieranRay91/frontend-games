@@ -1,11 +1,12 @@
 .reviews-heading {
   font-size: 28px;
-  color: #333;
+  color: black;
   margin-bottom: 1rem;
 }
 
 .reviews-description {
   margin-bottom: 2rem;
+  color: black;
 }
 .review-card {
     display: flex;
@@ -43,7 +44,7 @@
   
   .review-card h2 {
     font-size: 24px;
-    color: #333;
+    color: black;
   }
   
 .review-card h3 {
