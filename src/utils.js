@@ -32,3 +32,12 @@ export function fetchCommentsByReviewId(review_id) {
        return res.data.comments;
     })
 }
+
+export function updateVotesByReviewId(review_id, value) {
+    const voteData = {
+        inc_votes: value
+      };
+    return gamesApi.patch(`/reviews/${review_id}`, voteData).then((res) => {
+        return res.data.review;
+    })
+}
