@@ -1,5 +1,6 @@
 import { formatDate } from "../utils";
 
+
 function CommentsList({ comments }) {
   if (comments.length === 0) {
     return (
@@ -13,6 +14,7 @@ function CommentsList({ comments }) {
   return (
     <div>
       <h3>Comments:</h3>
+
       <ul>
         {comments.map((comment) => (
           <li key={comment.comment_id}>
