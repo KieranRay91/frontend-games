@@ -14,11 +14,11 @@ const gamesApi = axios.create({
     baseURL: `https://games-reviews-and-discussions.onrender.com/api`
 })
 
-export function fetchAllReviews(){
-    return gamesApi.get('/reviews').then((res) => {
+export function fetchAllReviews(category){
+  return gamesApi.get('/reviews', { params: { category: category  } }).then((res) => {
         return res.data.reviews;
     })
-}
+  }
 
 export function fetchSingleReview(review_id) {
     return gamesApi.get(`/reviews/${review_id}`).then((res) => { 
@@ -46,9 +46,15 @@ export function postComment(name, userComment, review_id) {
         body: userComment,
         username: name,
     }
-    console.log(newComment, review_id)
     return gamesApi.post(`/reviews/${review_id}/comments`, newComment).then((res) => {
       return res.data.addedComment;
        
     })
 }
+
+export function fetchCategories() {
+  return gamesApi.get('/categories').then((res) => {
+    return res.data.categories;
+  })
+}
+
