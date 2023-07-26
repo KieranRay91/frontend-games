@@ -1,0 +1,3 @@
+This is my front end project, which makes use of the data stored and provided by my backend api project.
+
+This react made website displays the reviews and comments for a variety of games. Users are able to view a list of reviews and pick a review of their choice, thereby displaying additional data for said review. They are able to upvote or downvote the review, view additional comments made by other users and add their own comment which will also be displayed. Additional functionality will be added in the future. 

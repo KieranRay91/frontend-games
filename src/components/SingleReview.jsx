@@ -1,9 +1,14 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { fetchSingleReview, fetchCommentsByReviewId, formatDate, updateVotesByReviewId } from "../utils";
+import {
+  fetchSingleReview,
+  fetchCommentsByReviewId,
+  formatDate
+} from "../utils";
 import "../singleReview.css";
 import CommentsList from "./CommentsList";
 import VoteButton from "./VoteButton";
+import CommentForm from "./AddComment.";
 
 function SingleReview() {
   const { review_id } = useParams();
@@ -16,9 +21,9 @@ function SingleReview() {
 
   useEffect(() => {
     fetchSingleReview(review_id).then((review) => {
+      setIsLoading(false)
       const currentVotes = review.votes;
       setSingleReview(review);
-      setIsLoading(false);
       setVotes(currentVotes);
     });
   }, [review_id]);
@@ -31,17 +36,6 @@ function SingleReview() {
 
   const toggleComments = () => {
     setShowComments(!showComments);
-  };
-
-  const handleVote = (value) => {
-    updateVotesByReviewId(review_id, value)
-      .then((updatedReview) => {
-        setError("");
-      })
-      .catch((error) => {
-        console.error("Failed to update votes:", error);
-        setError("Failed to update votes. Please try again.");
-      });
   };
 
   if (isLoading) {
@@ -57,15 +51,15 @@ function SingleReview() {
         src={singleReview.review_img_url}
         alt={`Image for the review titled ${singleReview.title}`}
       />
+
+      <div className="votes-container">
+        <VoteButton votes={votes} setVotes={setVotes} review_id={review_id}/>
+        <p>UpVotes: {votes}</p>
+      </div>
       <p>{singleReview.review_body}</p>
       <p>Category: {singleReview.category}</p>
       <p>Created On: {formatDate(singleReview.created_at)}</p>
-
-      <div className="votes-container">
-        <VoteButton votes={votes} setVotes={setVotes} onClick={handleVote} />
-        <p>UpVotes: {votes}</p>
-      </div>
-
+      <CommentForm review_id={review_id} setComments={setComments} />
       <button className="comments-button" onClick={toggleComments}>
         {showComments ? "Hide Comments" : "Show Comments"}
       </button>
